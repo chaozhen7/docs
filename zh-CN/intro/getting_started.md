@@ -92,7 +92,7 @@ public class App extends Bootstrap {
 您应该在程序启动后看到一条日志信息：
 
 ```sh
-[INFO] Blade listening on http://127.0.0.1:9000
+2015-10-12 11:16:46,658 INFO [main] com.blade.Blade | Blade Server Listen on http://127.0.0.1:9000
 ```
 
 现在，打开您的浏览器然后访问 [http://localhost:9000](http://localhost:9000)。您会发现，一切是如此的美好！
