@@ -1,5 +1,7 @@
 ---
+root: false
 name: 开始使用
+sort: 1
 ---
 
 # 开始使用 Blade

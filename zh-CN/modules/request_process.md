@@ -1,10 +1,10 @@
 ---
 root: false
-name: 数据绑定与验证
-sort: 4
+name: 请求数据处理
+sort: 3
 ---
 
-# 数据绑定与验证
+# 请求数据处理
 
 中间件 binding 为 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 提供了请求数据绑定与验证的功能。
 

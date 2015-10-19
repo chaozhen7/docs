@@ -33,7 +33,7 @@ JDK 的最低版本要求为 **1.6**。
 
 ## 快速导航
 
-- 刚开始了解 Blade 的话，不妨从 [开始使用](/docs/intro/getting_start) 看起。
-- Blade 已经拥有许多 [扩展库](/docs/modules) 来简化您的工作。
+- 刚开始了解 Blade 的话，不妨从 [开始使用](/docs/intro/getting_started) 看起。
+- Blade 已经拥有许多 [扩展库](/docs/middlewares) 来简化您的工作。
 - 如果您有任何问题，建议先从 [常见问题](/docs/faqs) 中寻找答案。
 - 如果您觉得文档有描述得不够清楚之处，请通过 [提交工单](https://github.com/biezhi/blade/docs/issues) 告知我们。
