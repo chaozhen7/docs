@@ -110,3 +110,81 @@ public class Index{
 ```
 
 ### 注解路由
+
+这种写法可能是大家最习惯的，也是常见的写法之一，用注解配置一个路由
+
+```java
+@Path("/")
+public class Hello {
+    
+    @Route("hello")
+    public String hello() {
+        System.out.println("hello");
+        return "hello.jsp";
+    }
+        
+    @Route(value = "post", method = HttpMethod.POST)
+    public void post(Request request) {
+        String name = request.query("name");
+        System.out.println("name = " + name);
+    }
+    
+    @Route("users/:name")
+    public ModelAndView users(Request request, Response response) {
+        System.out.println("users");
+        String name = request.pathParam(":name");
+        
+        ModelAndView modelAndView = new ModelAndView("users");
+        modelAndView.add("name", name);
+        return modelAndView;
+    }
+
+    @Route("index")
+    public String index(Request request) {
+        request.attribute("name", "jack");
+        return "index.jsp";
+    }
+}
+```
+
+**@Path是什么？**
+
++ 每一个路由的类必须用`@Path`标识，这样路由解析器知道这是一个路由类
++ `@Path`注解只有一个value参数配置，相当于`namespace`
+    
+**@Route是什么？**
+
++ `Route`是一个路由的最小单元，用于方法上
++ `Route`的参数有`value`，`method`，`acceptType`
++ `value`用于配置路由的URL，也就是http请求的路径
++ 一般不以`/`开头，因为`@Path`上会指定的，写法如下：
+    * /hello
+    * /user/hello
+    * /user/:uid
+    * /user/:uid/post
+    
++ Rest风格的路由配置，一定适合你的口味！
+
+**所有的支持的基础函数如下所示**
+
+```java
+get(path, CallBack);
+post(path, CallBack);
+delete(path, CallBack);
+put(path, CallBack);
+patch(path, CallBack);
+head(path, CallBack);
+trace(path, CallBack);
+options(path, CallBack);
+connect(path, CallBack);
+all(path, CallBack);
+```
+
+那么，配置好了路由大家还有什么疑问呢？
+
+- 请求的数据如何接收？
+- 怎么处理上传？
+- json怎么返回？
+- 拦截器该怎么玩？
+
+下面的一个章节带你了解这些功能，[一起来吧](./request_process)
