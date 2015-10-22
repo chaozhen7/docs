@@ -11,7 +11,8 @@ sort: 0
 + [hello](https://github.com/bladejava/hello)：blade一试便知
 + [sample](https://github.com/bladejava/blade-sample)：入门工程
 + [crawl](https://github.com/bladejava/blade-crawl)：爬虫小玩意
-+ [shorturl](https://github.com/bladejava/blade-shorturl)：短地址服务
++ [shorturl](https://github.com/bladejava/shorturl)：短地址服务
++ [postapi](https://github.com/bladejava/postapi)：博客API程序
 + [blade-bbs](https://github.com/bladejava/blade-bbs)：简洁论坛系统
 
 ## 开发计划
