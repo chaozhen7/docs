@@ -20,7 +20,7 @@ blade-sql2o是一款基于 `sql2o` 来更快速的操作数据库的框架。
 
 首先加入`blade-sql2o`组件
 
-```java
+```xml
 <dependency>
 	<groupId>com.bladejava</groupId>
 	<artifactId>blade-sql2o</artifactId>
