@@ -31,10 +31,9 @@ mvnrepository是 [最新稳定版本](https://github.com/biezhi/blade/blob/maste
 
 不使用maven构建基于blade的项目也非常简单，只要把你需要的jar包加进去就可以了。
 
-`blade`核心库文件有2个 
+`blade` 核心库文件有2个：`blade-kit.jar` 和 `blade-core.jar`
 
-+ [blade-kit.jar](http://mvnrepository.com/artifact/com.bladejava/blade-kit)
-+ [blade-core.jar](http://mvnrepository.com/artifact/com.bladejava/blade-core) 
+在这里 [下载](https://github.com/biezhi/blade/releases/)。
 
 升级只需更换响应的jar包即可。
 
