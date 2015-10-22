@@ -6,7 +6,7 @@ sort: 0
 
 ## Blade
 
- `blade` 意为利刃，刀剑；在中国冷兵器中刀剑的杀伤力可谓锐不可当，对它的名字没有很刻意的去琢磨，偶尔看到这个单词觉得比较喜欢，当然我希望它日后能够成为一把锐利的杀手锏。我个人的追求简洁和优雅的，所以在设计上不追求过度抽象，工欲善其事，必先利其器，blade的简洁、强大一定值得你拜读。
+ `blade` 意为利刃，刀剑；在中国冷兵器中刀剑的杀伤力可谓锐不可当，对它的名字没有很刻意的去琢磨，碰巧看到这个单词觉得比较喜欢，当然我希望它日后能够成为一把锐利的杀手锏。我个人的追求简洁和优雅的，所以在设计上不追求过度抽象，工欲善其事，必先利其器，blade的简洁、强大一定值得你拜读，如果你喜欢 请为它 [Star](https://github.com/biezhi/blade)，Thanks！
 
  `blade` 是一个快速开发Java应用的web框架，他可以用来快速开发API、Web 及后端服务等各种应用，是一个RESTful的框架，它提供了简易便捷的开发方式，微内核的mvc总线引导框架的整体运行，最初的目的是简化web开发，当然作者会在日后的版本升级以及集成其他基于blade的更多简洁组件。
 
@@ -36,12 +36,12 @@ JDK 的最低版本要求为 **1.6**。
 
 ## 使用案例
 
-- [Hello](https://github.com/bladejava/hello)：Blade的一个入门项目
-- [blade-bbs](https://github.com/bladejava/blade-bbs)：简洁的论坛系统
-- [blade-blog](https://github.com/bladejava/blade-blog): 单用户博客系统[进行中]
-- [blade-shorturl](http://gopm.io)：短地址服务接口
-- [izoe](https://github.com/biezhi/izoe)：图片、音乐社交系统[进行中]
-- [更多例子](https://github.com/bladejava)
++ [hello](https://github.com/bladejava/hello)：blade一试便知
++ [sample](https://github.com/bladejava/blade-sample)：入门工程
++ [crawl](https://github.com/bladejava/blade-crawl)：爬虫小玩意
++ [shorturl](https://github.com/bladejava/shorturl)：短地址服务
++ [postapi](https://github.com/bladejava/postapi)：博客API程序
++ [blade-bbs](https://github.com/bladejava/blade-bbs)：简洁论坛系统
 
 ## 快速导航
 
