@@ -71,6 +71,12 @@ getToFloat(String key)
 - `blade.prefix`：视图目录前缀，如 `/WEB-INF/views/`，要以 `/` 开头和结尾哟
 - `blade.suffix`：视图文件的后缀名，默认是 `.jsp`，你可以修改为其他
 - `blade.filter_folder`：静态文件目录，在请求时这些目录会被过滤掉
+- `blade.filter_folder`：静态文件目录，在请求时这些目录会被过滤掉
+- `blade.route`：配置注解路由的包名，多个用逗号隔开
+- `blade.interceptor`：配置拦截器的包名，多个用逗号隔开（不推荐此方式）
+- `blade.view404`：配置404模板文件位置
+- `blade.view500`：配置500模板文件位置
+- `blade.enableXSS`：配置是否启用XSS防御，默认不启用
 
 其实配置很简单，你需要什么就加入什么，组件式开发真的so easy~
 

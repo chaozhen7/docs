@@ -38,8 +38,8 @@ blade.before("/*").run( (req,res) -> {
     		res.text("csrf error!!!");
     		return false;
     	}
-    }
-	System.out.println("post 请求");
+    	System.out.println("post 请求");
+    }	
 	return req.invoke();
 });
 ```
