@@ -67,7 +67,7 @@ public class App {
 	public static void main(String[] args) {
 		Blade blade = Blade.me();
 		blade.get("/", new RouteHandler() {
-			public void handler(Request request, Response response) {
+			public void handle(Request request, Response response) {
 				response.html("<h1>Hello Blade！</h1>");
 			}
 		});

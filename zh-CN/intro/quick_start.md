@@ -52,9 +52,9 @@ public class App extends Bootstrap {
     	Blade blade = Blade.me();
 
         blade.get("/", new RouteHandler() {
-            public Object handler(Request request, Response response) {
+            public void handle(Request request, Response response) {
                 request.attr("name", "blade");
-                return "index";
+                response.render("index");
             }
         });
     }
