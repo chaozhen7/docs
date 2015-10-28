@@ -49,39 +49,30 @@ mvnrepository是 [最新稳定版本](https://github.com/biezhi/blade/blob/maste
 		<version>[最新版本]</version>
 	</dependency>
 	<dependency>
-		<groupId>javax.servlet</groupId>
-		<artifactId>javax.servlet-api</artifactId>
-		<version>3.1.0</version>
-	</dependency>
-	<dependency>
-		<groupId>org.eclipse.jetty</groupId>
-		<artifactId>jetty-servlet</artifactId>
-		<version>9.3.4.v20151007</version>
+		<groupId>com.bladejava</groupId>
+		<artifactId>blade-startup</artifactId>
+		<version>1.0.0</version>
 	</dependency>
 </dependencies>
 ```
 
-创建启动类继承自 `Bootstrap`：
+创建一个服务类，普通 Java 类即可：
 
 ```java
 /**
  * Hello Blade!
  */
-public class App extends Bootstrap {
-
-	@Override
-	public void init() {}
+public class App {
 	
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		Blade blade = Blade.me();
 		blade.get("/", new RouteHandler() {
-			public Object handler(Request request, Response response) {
+			public void handler(Request request, Response response) {
 				response.html("<h1>Hello Blade！</h1>");
-				return null;
 			}
 		});
 		
-		blade.app(App.class).start();
+		blade.start();
 	}
 }
 ```
