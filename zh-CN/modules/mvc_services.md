@@ -14,11 +14,11 @@ Blade 会注入一些默认服务来驱动您的应用，这些服务被称之�
 
 ```java
 request.query("");
-request.queryToInt("");
-request.queryToDouble("");
-request.queryToFloat("");
-request.queryToBoolean("");
-request.queryToLong("");
+request.queryAsInt("");
+request.queryAsDouble("");
+request.queryAsFloat("");
+request.queryAsBoolean("");
+request.queryAsLong("");
 ```
 
 使用例子如下：
@@ -37,9 +37,9 @@ public void hi(Request request){
 在REST风格的URL路径上，我们的配置是类似于 `/user/:uid` 酱紫的。 那么如何获取呢？blade的request对象提供了如下方法，使用很简单
 
 ```java
-request.pathParam("");
-request.pathParamToInt("");
-request.pathParamToLong("");
+request.param("");
+request.paramAsInt("");
+request.paramAsLong("");
 ```
 
 **获取 Request Body 里的内容**
@@ -47,7 +47,7 @@ request.pathParamToLong("");
 在 API 的开发中，我们经常会用到 `JSON` 或 `XML` 来作为数据交互的格式，如何在blade中获取Request Body里的JSON或XML的数据呢？
 
 ```java
-String body = request.body();
+String body = request.body().asString;
 ```
 
 **文件上传**
@@ -172,6 +172,6 @@ public void get(Response res){
 ```java
 public void init(){
 	Blade blade = Blade.me();
-	blade.staticFolder("public", "assets");
+	blade.staticFolder("/public", "/assets");
 }
 ```
