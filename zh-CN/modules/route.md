@@ -1,6 +1,6 @@
 ---
 root: false
-name: 路由模块
+name: 路由
 sort: 2
 ---
 
@@ -9,13 +9,11 @@ sort: 2
 现代 Web 应用的 URL 十分优雅，易于人们辨识记忆。
 在 Blade 中, 路由是一个 HTTP 方法配对一个 URL 匹配模型， 每一个路由可以对应一个或多个处理器方法，如下所示:
 
+## 基本路由
+
 ```java
 blade.get("/").run(req, res) -> {
     // show something
-});
-
-blade.patch("/").run(req, res) -> {
-    // update something
 });
 
 blade.post("/").run(req, res) -> {
@@ -29,15 +27,32 @@ blade.put("/").run(req, res) -> {
 blade.delete("/").run(req, res) -> {
     // destroy something
 });
+```
 
-blade.options("/").run(req, res) -> {
-    // http options
-});
+## 为多种请求注册路由
 
-blade.all("/").run(req, res) -> {
-    // do anything
+这里配置一个路由文件（对于匹配的是 `com.example.controller` 包下的类）
+
+```java
+blade.routeConf("com.example.controller", "route.conf");
+```
+
+`route.conf` 写法
+
+```
+GET     /               IndexRoute#home
+POST    /signin         IndexRoute#signin
+GET     /users          UserRoute#show_users
+GET     /users/:uid     UserRoute#show_user
+```
+
+## 注册路由响应所有 HTTP 请求
+
+```java
+blade.any("/").run(req, res) -> {
 });
 ```
+
 
 几点说明：
 
@@ -172,12 +187,8 @@ get(path, CallBack);
 post(path, CallBack);
 delete(path, CallBack);
 put(path, CallBack);
-patch(path, CallBack);
-head(path, CallBack);
-trace(path, CallBack);
-options(path, CallBack);
-connect(path, CallBack);
-all(path, CallBack);
+route(path, CallBack);
+any(path, CallBack);
 ```
 
 那么，配置好了路由大家还有什么疑问呢？
@@ -187,4 +198,4 @@ all(path, CallBack);
 - json怎么返回？
 - 拦截器该怎么玩？
 
-下面的一个章节带你了解这些功能，[一起来吧](./request_process)
+下面的一个章节带你了解这些功能，[一起来吧](./requestresponse)

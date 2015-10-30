@@ -1,7 +1,7 @@
 ---
 root: false
-name: 数据库操作
-sort: 5
+name: 操作数据库
+sort: 6
 ---
 
 # 数据库操作

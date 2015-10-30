@@ -1,14 +1,18 @@
 ---
 root: false
-name: 配置模块
+name: 配置
 sort: 1
 ---
 
-# 配置模块
+# 简介
+
+Blade 框架的运行是依赖于配置的，每个选项都有说明，因此你可以轻松地浏览这些文档，并且熟悉这些选项配置。
+
+# 配置
 
 blade 目前支持 JSON、Properties 格式的配置文件解析，也可以硬编码进行配置，但是默认采用了 Properties 格式解析，用户可以通过简单的配置就可以获得很大的灵活性。
 
-## 配置方式
+# 配置方式
 
 我们创建一个基于 blade 的应用程序时，都必须创建一个初始化配置类 继承自 `Bootstrap` 类：
 
@@ -32,7 +36,7 @@ public class App extends Bootstrap {
 > _**一般在启动配置类的 `init` 方法进行 路由配置、模板配置、数据库配置等操作**_
 
 
-## 默认配置
+# 默认配置
 
 blade 内置了一些基础配置方便开发者使用
 
@@ -45,7 +49,7 @@ blade.suffix=.jsp
 
 如果你是非 web 应用且使用 jetty 启动，那么 blade 默认启动端口是 9000。
 
-## 读取配置
+# 读取配置值
 
 ```java
 Blade blade = Blade.me();
@@ -80,4 +84,4 @@ getToFloat(String key)
 
 其实配置很简单，你需要什么就加入什么，组件式开发真的so easy~
 
-接下来去探寻 [路由](./routing) 的秘密！
+接下来去探寻 [路由](./route) 的秘密！
