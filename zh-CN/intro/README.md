@@ -23,7 +23,7 @@ sort: 0
 
 Blade 繁多的配置选项在初始状况下都有一个明智的默认值，并会遵循一些惯例。 例如，按照惯例，模板文件存储在应用的 `WEB-INF` 目录里。虽然这个配置可以修改，但你通常不必这么做， 尤其是在刚开始的时候。
 
-[API 指南](https://gowalker.org/github.com/Unknwon/macaron)
+[API 指南](http://bladejava.com/apidocs)
 
 JDK 的最低版本要求为 **1.6**。
 
