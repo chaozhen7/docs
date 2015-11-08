@@ -37,3 +37,7 @@ Exception in thread "main" java.lang.UnsupportedClassVersionError: org/eclipse/j
 
 在`blade-startup`的下一个版本中会修复该问题！
 
+**jetty各个版本信息**
+
+![](http://i.imgur.com/cc35Yjd.png)
+
