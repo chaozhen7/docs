@@ -28,18 +28,20 @@ sort: 2
 ```
 
 ```xml
-<filter>
-    <filter-name>CoreFilter</filter-name>
-    <filter-class>com.blade.CoreFilter</filter-class>
-    <init-param>
-        <param-name>bootstrapClass</param-name>
-        <param-value>blade.hello.App</param-value>
-    </init-param>
-</filter>
-<filter-mapping>
-    <filter-name>CoreFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-</filter-mapping>
+<servlet>
+	<servlet-name>dispatcherServlet</servlet-name>
+	<servlet-class>com.blade.web.DispatcherServlet</servlet-class>
+	<load-on-startup>1</load-on-startup>
+	<async-supported>true</async-supported>
+	<init-param>
+		<param-name>bootstrap</param-name>
+		<param-value>blade.sample.App</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>dispatcherServlet</servlet-name>
+	<url-pattern>/</url-pattern>
+</servlet-mapping>
 ```
 
 创建启动类：
@@ -48,8 +50,7 @@ sort: 2
 public class App extends Bootstrap {
 
     @Override
-    public void init() {
-    	Blade blade = Blade.me();
+    public void init(Blade blade) {
 
         blade.get("/", new RouteHandler() {
             public void handle(Request request, Response response) {
