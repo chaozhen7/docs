@@ -15,6 +15,6 @@ Blade核心模块可以帮助您快速开发，减少工作量。
 - [beetl](https://github.com/biezhi/blade/blob/master/blade-core/src/main/java/com/blade/render/BeetlRender.java) - Beetl 模板引擎支持
 - [jetbrick](https://github.com/biezhi/blade/blob/master/blade-core/src/main/java/com/blade/render/JetbrickRender.java) - JetbrikTemplate 模板引擎支持
 - [blade-kit](https://github.com/biezhi/blade/tree/master/blade-kit) - 简洁强大的工具包
-- [blade-oauth2](https://github.com/biezhi/blade/tree/master/blade-oauth2) - OAuth 2.0 支持
-- [blade-patchca](https://github.com/biezhi/blade/tree/master/blade-patchca) - 验证码支持
+- [oauth2](https://github.com/biezhi/blade/tree/master/blade-oauth2) - OAuth 2.0 支持
+- [patchca](https://github.com/biezhi/blade/tree/master/blade-patchca) - 验证码支持
 - [csrf](http://bladejava.com/docs/modules/csrf) - 生成和管理 CSRF 令牌
