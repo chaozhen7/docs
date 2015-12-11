@@ -10,6 +10,7 @@ Blade核心模块可以帮助您快速开发，减少工作量。
 
 - [cache](https://github.com/biezhi/blade/tree/master/blade-cache) - 缓存管理器
 - [sql2o](https://github.com/biezhi/blade/tree/master/blade-sql2o) - Active Record数据库操作
+- [aop](https://github.com/biezhi/blade/tree/master/blade-aop) - cglib实现的可配置AOP拦截
 - [redis](https://github.com/biezhi/blade/tree/master/blade-redis) - Redis 支持
 - [velocity](https://github.com/biezhi/blade/blob/master/blade-core/src/main/java/com/blade/render/VelocityRender.java) - Velocity 模板引擎支持
 - [beetl](https://github.com/biezhi/blade/blob/master/blade-core/src/main/java/com/blade/render/BeetlRender.java) - Beetl 模板引擎支持
