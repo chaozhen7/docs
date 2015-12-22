@@ -179,7 +179,7 @@ public class BaseInterceptor {
 	
 	TimwMonitor monitor = TimwManager.getTimerMonitor();
 	
-	@Before("/*")
+	@Before("/.*")
 	public void before(Request request, Response response){
 		
 		System.out.println("before...");
@@ -191,7 +191,7 @@ public class BaseInterceptor {
 		User login_user = request.session().attribute(Constant.LOGIN_SESSION);
 	}
 	
-	@After("/*")
+	@After("/.*")
 	public void after(){
 		System.out.println("after...");
 		monitor.end();
@@ -204,15 +204,11 @@ public class BaseInterceptor {
 在新版本中支持函数式注册拦截器，写法如下：
 
 ```java
-blade.before("/*", new RouteHandler() {
+blade.before("/.*", new RouteHandler() {
 	@Override
-	public Object handler(Request request, Response response) {
-		if(!BBSKit.isInstall() && request.uri().indexOf("/install") == -1){
-			return request.invoke("/install");
-		}
-		request.attribute("cdn", Constant.CDN_SITE);
+	public void handler(Request request, Response response) {
+		request.attribute("base", request.contextPath());
 		request.attribute("version", "1.0");
-		return request.invoke();
 	}
 });
 ```
