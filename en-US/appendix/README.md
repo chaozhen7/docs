@@ -1,6 +1,6 @@
 ---
 root: true
-name: 附录
+name: Appendix
 sort: 0
 ---
 
