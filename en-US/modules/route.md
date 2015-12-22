@@ -1,6 +1,6 @@
 ---
 root: false
-name: 路由
+name: Route
 sort: 2
 ---
 

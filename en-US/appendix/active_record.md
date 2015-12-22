@@ -1,6 +1,6 @@
 ---
 root: false
-name: Active Record 基础
+name: Active Record Base
 sort: 3
 ---
 

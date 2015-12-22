@@ -1,6 +1,6 @@
 ---
 root: false
-name: 验证码
+name: Verification code
 sort: 2
 ---
 

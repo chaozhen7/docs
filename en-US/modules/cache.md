@@ -1,6 +1,6 @@
 ---
 root: false
-name: 缓存管理（Cache）
+name: Cache Manage
 sort: 7
 ---
 

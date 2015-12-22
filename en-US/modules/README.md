@@ -1,5 +1,5 @@
 ---
-name: 核心模块
+name: Core Ext
 ---
 
 # Blade核心模块

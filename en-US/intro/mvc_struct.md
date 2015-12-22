@@ -1,6 +1,6 @@
 ---
 root: false
-name: MVC架构
+name: MVC Architecture
 sort: 3
 ---
 

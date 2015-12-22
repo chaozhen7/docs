@@ -1,10 +1,9 @@
 ---
 root: true
-name: 常见问题
-sort: 2
+name: FAQ
 ---
 
-# 常见问题
+# FAQ
 
 ### jdk7下出现`java.lang.UnsupportedClassVersionError: org/eclipse/jetty/server/Handler`
 

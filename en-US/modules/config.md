@@ -1,6 +1,6 @@
 ---
 root: false
-name: 配置
+name: Configuration
 sort: 1
 ---
 

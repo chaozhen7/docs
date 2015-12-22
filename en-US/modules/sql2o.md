@@ -1,6 +1,6 @@
 ---
 root: false
-name: 操作数据库
+name: Database operation
 sort: 6
 ---
 

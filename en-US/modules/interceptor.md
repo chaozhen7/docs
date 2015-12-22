@@ -1,6 +1,6 @@
 ---
 root: false
-name: 拦截器
+name: Interceptor
 sort: 3
 ---
 

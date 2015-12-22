@@ -1,6 +1,6 @@
 ---
 root: false
-name: 跨域攻击（CSRF）
+name: Cross-domain Attack
 sort: 8
 ---
 

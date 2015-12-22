@@ -1,6 +1,6 @@
 ---
 root: false
-name: 视图
+name: View And Template
 sort: 5
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: 核心概念
+name: Core Concept
 ---
 
 # Macaron 核心概念

@@ -1,6 +1,6 @@
 ---
 root: false
-name: 参与贡献
+name: Contribution of participation
 sort: 1
 ---
 
