@@ -62,7 +62,7 @@ public class App extends Bootstrap {
 }
 ```
 
-这里 `return` 的 `index` 会查找 `WEB-INF/index.jsp` 文件。
+这里渲染的 `index` 会查找 `WEB-INF/index.jsp` 文件。
 
 将程序部署在 `Tomcat` 中运行后，打开浏览器，输入 [http://127.0.0.1:8080/hello/](http://127.0.0.1:8080/hello/)
 
