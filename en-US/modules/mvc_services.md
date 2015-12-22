@@ -129,3 +129,4 @@ Therefore, setting cookies for the most complete usage: `cookie("user", "unknwon
 It is important to note that the order of the parameters are fixed.
 
 For particularly high security requirements of applications, can be set for each Cookie use different key encryption/decryption.
+

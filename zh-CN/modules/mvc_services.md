@@ -85,10 +85,10 @@ public void uploadImage(Request request, Response response){
 使用方法：
 
 ```java
-public void index(Response res){
-	res.html("<h1>hello</h1>");
-	res.text("<h1>hello</h1>");
-	res.json("{'name':'jack'}");
+public void index(Request request, Response response){
+	response.html("<h1>hello</h1>");
+	response.text("<h1>hello</h1>");
+	response.json("{'name':'jack'}");
 }
 ```
 
@@ -127,3 +127,16 @@ public void get(Response res){
 需要注意的是，参数的顺序是固定的。
 
 对于那些对安全性要求特别高的应用，可以为每次设置 Cookie 使用不同的密钥加密/解密。
+
+~~## 静态文件~~
+
+~~该服务可以通过函数 `staticFolder("","");` 来设置。该服务主要负责应用静态资源的服务，当您的应用拥有多个静态目录时，可以对其进行多个设置。~~
+
+~~使用方法：~~
+
+~~```java~~
+~~public void init(){~~
+~~	Blade blade = Blade.me();~~
+~~	blade.staticFolder("/public", "/assets");~~
+~~}~~
+~~```~~
