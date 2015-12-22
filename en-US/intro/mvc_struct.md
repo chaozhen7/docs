@@ -4,38 +4,38 @@ name: MVC Architecture
 sort: 3
 ---
 
-# MVC架构
+# MVC Architecture
 
-## 概念
+## Concept
 
-Blade 从Rails 和 Play! 中吸收了许多成熟的设计思想, 许多相同的思想被用到了框架的设计和接口中。
+Blade from Rails and Play!Absorb a lot of mature design ideas, many of the same idea is used in the framework of design and interface.
 
-Blade 通过简单的约定来支持 MVC 设计模式，轻量、开发效率高。
+Blade through simple agreed to support the MVC design pattern, light weight, high development efficiency.
 
 ## MVC
 
-- 模型 描述基本的数据对象，特定的查询和更新逻辑。
-- 视图 一些模板，用于将数据呈现给用户。
-- 控制器 执行用户的请求，准备用户所需的数据，并指定模板进行渲染。
+- Model describes the basic data objects, a particular query and update the logic.
+- View some templates for the data presented to the user.
+- Controller to perform the user's request to the data according to user's requirements, and specify the template rendering.
 
-一些不错的MVC结构概述，像 [Play!](http://www.playframework.org/) 框架 与Blade框架完全匹配。
+Summary of some good MVC structure, like [Play!](http://www.playframework.org/) and Blade match exactly.
 
-## 整体设计
+## Overall Design
 
 ![](https://i.imgur.com/fNxaeoi.png)
 
-`blade`是基于`blade-core`为核心的构建的，是一个高度解耦的框架。
-`blade`设计之初就考虑了模块化、插件化去使用，用独立的组件进行开发，部分组件不依赖`blade`，例如：你可以使用`blade-cache`模块来做你的缓存逻辑；使用`blade-kit`模块来作为你的基础工具包。
+`blade` is based on the `blade-core` for the construction of the core, is a highly decoupled framework.
+`blade` consideration at the beginning of the modular design, the plugin to use, with independent components development, part of the component does not rely on `blade`, for example, you can use a `blade-cache` module to do your cache logic; use `blade-kit` as the basis of your kit.
 
-## 执行逻辑
+## Perform Logical
 
-既然`blade`是基于核心模块构建的，那么他的执行逻辑是怎么样的呢？`blade`是一个典型的MVC架构，他的执行逻辑如下图所示：
+Since ` blade ` is built based on the core module, so his execution logic is what?` blade ` is a typical MVC architecture, his execution logic as shown in the figure below:
 
  ![](https://i.imgur.com/joP7aBH.png)
 
-## 项目结构
+## Project Structure
 
-一般的`blade`项目的目录如下所示，是一个maven类型的项目：
+General `blade` project directory as shown below, is a type of maven project:
 
 ```
 ├── java
@@ -52,19 +52,20 @@ Blade 通过简单的约定来支持 MVC 设计模式，轻量、开发效率高
         ├── web.xml
         └── views
 ```
-从上面的目录结构我们可以看出来 M（models 目录）、V（views 目录）和 C（controllers 目录）的结构， `App.java` 是入口文件。
 
-# 贡献代码
+We can see from the above directory structure M（models）、V（views）和 C（controllers）structure, `App.java` is the entry file。
 
-`blade` 是免费、开源的软件，这意味着任何人都可以为其开发和进步贡献力量。
+# Contribute code
 
-`blade` 源代码目前托管在Github上，Github提供非常容易的途径fork项目和合并你的贡献。
+`blade` is free and open source software, which means that anyone can make contributions to the development and progress.
+
+`blade` source code is hosted on a lot, lot provides a very easy way to fork the project and merge your contribution.
 
 **Pull Requests**
 
-pull request 的处理过程对于新特性和bug是不一样的。在你发起一个新特性的pull request之前，你应该先创建一个带有`[Proposal]`标题的issue。这个proposal应当描述这个新特性，以及实现方法。提议将会被审查，有可能会被采纳，也有可能会被拒绝。当一个提议被采纳，将会创建一个实现新特性的pull request。没有遵循上述指南的pull request将会被立即关闭。
-为bug创建的Pull requests不需要创建建议issue。如果你有解决bug的办法，请详细描述你的解决方案。
+A pull request process for new features and bug are not the same.When you launch a new feature of the pull request before, you should first create a `[Proposal]` title issue.The proposal should describe this new feature, as well as the realization method.Proposal will be review, could be adopted, are also likely to be rejected.When a proposal is adopted, will create an implementation of the new features of the pull request.Not follow the guidelines of the pull request will be shut down immediately.
+For bug create Pull requests do not need to create suggested that issue.If you have a solution to the bug, please describe in detail your solution.
 
-# 提交新特性
+# Submit new features
 
-如果你希望blade中出现某个新特性，你可以在Github中创建一个带有 `request` 标题的issue。该建议将会被核心代码贡献者审查。
+If you want blade in a new feature, you can create a with in making ` request ` title issue.The proposal will be the core code contributors review.
