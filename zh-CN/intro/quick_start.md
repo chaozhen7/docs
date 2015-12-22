@@ -32,7 +32,6 @@ sort: 2
 	<servlet-name>dispatcherServlet</servlet-name>
 	<servlet-class>com.blade.web.DispatcherServlet</servlet-class>
 	<load-on-startup>1</load-on-startup>
-	<async-supported>true</async-supported>
 	<init-param>
 		<param-name>bootstrap</param-name>
 		<param-value>blade.sample.App</param-value>
