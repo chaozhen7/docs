@@ -46,12 +46,12 @@ mvnrepository是 [最新稳定版本](https://github.com/biezhi/blade/blob/maste
 	<dependency>
 		<groupId>com.bladejava</groupId>
 		<artifactId>blade-core</artifactId>
-		<version>[最新版本]</version>
+		<version>1.5.0</version>
 	</dependency>
 	<dependency>
 		<groupId>com.bladejava</groupId>
 		<artifactId>blade-startup</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 	</dependency>
 </dependencies>
 ```

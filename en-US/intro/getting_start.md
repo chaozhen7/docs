@@ -48,7 +48,7 @@ Create a Maven project (not the web project), in `pom.xml` Blade is added:
 	<dependency>
 		<groupId>com.bladejava</groupId>
 		<artifactId>blade-core</artifactId>
-		<version>[LAST_VERSION]</version>
+		<version>1.5.0</version>
 	</dependency>
 	<dependency>
 		<groupId>com.bladejava</groupId>
