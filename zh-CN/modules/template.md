@@ -31,21 +31,22 @@ blade.viewPrefix("/WEB-INF/views/");
 **如何输出到页面？**
 
 ```java
-public String index(Request request){
+public void index(Request request, Response response){
     request.attribute("name", "jack");
-    return "index";
+    response.render("index");
 }
 ```
 
-`blade`框架内置了JSP渲染，所以你看到的`return "index"`代码是可以返回到`WEB-INF/index.jsp`文件上的，
+`blade`框架内置了JSP渲染，所以你看到的 `response.render("index")` 代码是可以返回到 `WEB-INF/index.jsp` 文件上的，
 这个文件在哪里，请看前面的 **模板目录**。
+
 当然`blade`还支持类似spring的`ModelAndView`，怎么使用呢，
 
 ```java
-public ModelAndView index(Request request){
+public void index(Request request, Response response){
     ModelAndView modelAndView = new ModelAndView("index");
     modelAndView.add("name", "jack");
-    return modelAndView;
+    response.render(modelAndView);
 }
 ```
 

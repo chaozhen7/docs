@@ -4,63 +4,64 @@ name: View And Template
 sort: 5
 ---
 
-# 模板引擎
+# Template Engin
 
-框架默认采用的是JSP引擎进行处理，按照惯例， Blade 轻松整合了 Java 常用的几个模板引擎到 web 应用。
+Framework by default USES the JSP engine for processing, by convention, Blade easily commonly used several templating engine to integrate the Java web applications.
 
-- `blade-jetbrick`：基于jetbrick-template模板引擎的扩展，也是本人最喜爱的模板引擎
-- `blade-velocity`：基于velocity模板引擎的扩展
-- `blade-beetl`：基于beetl模板引擎的扩展
+- `blade-jetbrick`: Based on jetbrick - the expansion of the template template engine, is also my favorite template engine
+- `blade-velocity`: Based on the expansion of the velocity template engine
+- `blade-beetl`: Based on the extension beetl template engine
 
-## JSP渲染
+## JSP Render
 
-默认使用了JSP引擎进行渲染，那么在开发 web 应用的时候应该注意什么呢？
+Default to the JSP engine to render, then in the development of web application, what should you pay attention to ?
 
-- 默认的jsp视图目录是 `WEB-INF`
-- Servlet3中使用EL表达式需要设置 `isELIgnored="false"`
+- The default is `WEB-INF` JSP view directory
+- You need to set up Servlet3 the use of EL expression `isELIgnored="false"`
 
-**模板目录**
+**Template directory**
 
-默认所有视图文件存放在`webapp`下的`WEB-INF`文件夹下，可进行设置：
+Under all the default view files stored in webapp `WEB-INF` folder, can be setting:
 
 ```java
-// 设置模板文件目录
+// Setting a template file directory
 blade.viewPrefix("/WEB-INF/views/");
 ```
 
-**如何输出到页面？**
+**How to output to the page ?**
 
 ```java
-public String index(Request request){
+public void index(Request request, Response response){
     request.attribute("name", "jack");
-    return "index";
+    response.render("index");
 }
 ```
 
-`blade`框架内置了JSP渲染，所以你看到的`return "index"`代码是可以返回到`WEB-INF/index.jsp`文件上的，
-这个文件在哪里，请看前面的 **模板目录**。
-当然`blade`还支持类似spring的`ModelAndView`，怎么使用呢，
+Blade framework built into the JSP rendering, so you can see `response.render("index")` code can be returned to the `WEB-INF/index.jsp` file,
+Where is this file, please look at the front to the **Template directory**.
+
+Blade also supports similar spring ModelAndView, of course, how to use ?
 
 ```java
-public ModelAndView index(Request request){
+public void index(Request request, Response response){
     ModelAndView modelAndView = new ModelAndView("index");
     modelAndView.add("name", "jack");
-    return modelAndView;
+    response.render(modelAndView);
 }
 ```
 
-喏，很简单吧。什么意思呢？
-`ModelAndView`是一个视图模型对象，在spring里出现，里面也就是存放视图和数据而已，
-你可以看它的源码，用`Map`存放数据，`String`变量存放视图文件。
+Here, is very simple.What do you mean ?
 
+ModelAndView object is a view model, in the spring, there is the store view and data,
+You can look at its source, the data is stored in the `Map`, `String` variable for the view file.
 
-## 配置模板引擎
+## Configuration template engine
 
 ```java
-// 设置模板引擎
+// Setting Templte Engine
 JetbrickRender jetbrickRender = new JetbrickRender();
 jetEngine = jetbrickRender.getJetEngine();
 blade.viewEngin(jetbrickRender);
 ```
 
-其他更多操作就遵循模板的使用方法即可。
+The use of other more operation will follow the template method.

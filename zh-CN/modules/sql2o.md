@@ -15,6 +15,7 @@ blade-sql2o是一款基于 `sql2o` 来更快速的操作数据库的框架。
 + 支持链式操作
 + 支持面向对象语法
 + 允许直接使用 SQL 查询／映射
++ 支持缓存数据
 
 ## 配置blade-sql2o
 
@@ -44,7 +45,7 @@ Sql2oPlugin sql2oPlugin = blade.plugin(Sql2oPlugin.class);
 sql2oPlugin.load("jdbc.properties").run();
 ```
 
-配置文件中编写你的数据库配置：
+jdbc.properties：
 
 ```sh
 blade.dburl=jdbc:mysql://127.0.0.1:3306/test
