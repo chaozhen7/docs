@@ -1,19 +1,20 @@
 ---
 root: false
-name: 开始使用
+name: Get Started
 sort: 1
 ---
 
-# 开始使用 Blade
+# Start Using Blade
 
-在我们开始之前，必须明确的一点就是，文档不会教授您任何有关 Java 语言的基础知识。所有对 Blade 使用的讲解均是基于您已有的知识基础上展开的。
+Before we start, must be clear is that the document will not teach you anything about the basic knowledge of Java language.All use of Blade's explanation is based on your existing knowledge basis.
 
-## 安装Blade
+## Install Blade
 
-添加依赖到项目中非常简单，只要确保你的版本是最新的。
-mvnrepository是 [最新稳定版本](https://github.com/biezhi/blade/blob/master/LAST_VERSION.md) 
+Dependence is added to the project is very simple, just make sure your version is the latest.
 
-下面是一个实例：
+mvnrepository is [last_version](https://github.com/biezhi/blade/blob/master/LAST_VERSION.md) 
+
+Here is an example:
 
 ```xml
 <dependency>
@@ -23,40 +24,41 @@ mvnrepository是 [最新稳定版本](https://github.com/biezhi/blade/blob/maste
 </dependency>
 ```
 
-这里添加了blade的核心库，根据你的需求可以添加其他依赖。
-比如模版引擎的依赖、数据库操作的依赖等。
+Here add the blade core library, according to your demand can add other dependencies.
+Such as the template engine dependence, dependence on database operations, etc.
 
-## 不使用maven
-有些同学可能还不会使用maven构建项目，建议有时间的话学习一下。
+## Not use maven
 
-不使用maven构建基于blade的项目也非常简单，只要把你需要的jar包加进去就可以了。
+Some students may not use maven build projects, Suggestions have the time to learn.
 
-`blade` 核心库文件有2个：`blade-kit.jar` 和 `blade-core.jar`
+Do not use the maven build based on the project of blade is also very simple, as long as the jars you need to go.
 
-在这里 [下载](https://github.com/biezhi/blade/releases/)。
+`blade` core jar: `blade-kit.jar` 和 `blade-core.jar`
 
-升级只需更换响应的jar包即可。
+[Download](https://github.com/biezhi/blade/releases/) it here.
 
-## 最简示例
+Upgrade simply replace the corresponding jar package.
 
-创建一个 Maven 项目(非web项目)，在 `pom.xml` 中添加 Blade 依赖：
+## The simplest example
+
+Create a Maven project (not the web project), in `pom.xml` Blade is added:
 
 ```xml
 <dependencies>
 	<dependency>
 		<groupId>com.bladejava</groupId>
 		<artifactId>blade-core</artifactId>
-		<version>[最新版本]</version>
+		<version>[LAST_VERSION]</version>
 	</dependency>
 	<dependency>
 		<groupId>com.bladejava</groupId>
 		<artifactId>blade-startup</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 	</dependency>
 </dependencies>
 ```
 
-创建一个服务类，普通 Java 类即可：
+Create a service class, ordinary Java classes:
 
 ```java
 /**
@@ -77,14 +79,15 @@ public class App {
 }
 ```
 
-使用 `Blade.me()` 方法返回 Blade 的单例对象，在整个app中是唯一的。
+Use `Blade.me()` method returns the singleton of Blade, is unique in the entire app.
 
-方法 `blade.get` 注册一个 `/` 的路由，Blade 的默认端口是9000，运行 `main` 方法。
 
-您应该在程序启动后看到一条日志信息：
+The method `blade.get` register `/` route, The Blade default port is 9000, running your main method.
+
+You should see after the program start a log message:
 
 ```sh
 2015-10-12 11:16:46,658 INFO [main] com.blade.Blade | Blade Server Listen on http://127.0.0.1:9000
 ```
 
-现在，打开您的浏览器然后访问 [http://localhost:9000](http://localhost:9000)。您会发现，一切是如此的美好！
+Now, open your browser and visit [http://localhost:9000](http://localhost:9000). You will find that, everything is so beautiful!

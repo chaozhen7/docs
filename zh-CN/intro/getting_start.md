@@ -35,7 +35,7 @@ mvnrepository是 [最新稳定版本](https://github.com/biezhi/blade/blob/maste
 
 在这里 [下载](https://github.com/biezhi/blade/releases/)。
 
-升级只需更换响应的jar包即可。
+升级只需更换相应的jar包即可。
 
 ## 最简示例
 

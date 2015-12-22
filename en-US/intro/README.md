@@ -48,7 +48,7 @@ JDK the lowest version required for **1.6**。
 
 ## Fast navigation
 
-- Just started to understand the words, might as well from [Begin to use](/docs/intro/getting_start).
+- Just started to understand the words, might as well from [Get Started](/docs/intro/getting_start).
 - Blade already has a number of [extensions](/docs/modules) to simplify your work.
 - If you have any questions, Suggestions from the first [FAQ](in/docs/faqs) to find the answer.
 - Document has described if you think is it not clear enough, please [pass/submit work orders](https://github.com/biezhi/blade/docs/issues) to inform us.
