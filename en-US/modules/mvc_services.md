@@ -2,15 +2,16 @@
 name: MVC Service
 ---
 
-# MVC服务
+# MVC Service
 
-Blade 会注入一些默认服务来驱动您的应用，这些服务被称之为 **核心服务**。也就是说，您可以直接使用它们作为处理器参数而不需要任何附加工作。
+Blade will inject some service to drive your application by default, These services are called **core services**.
+That is to say, you can use them directly as processor parameters without any additional work.
 
-### 请求对象
+### Request
 
-该对象是 `Request` 的实例。是 Blade 中路由的核心对象，获取参数，设置参数等操作都通过 `Request` 对象操作。
+The object is the Request instance.The path of the Blade is the core object, access parameters, set the parameter such as operating through the Request object operation.
 
-我们经常需要获取用户传递的数据，包括Get、POST等方式的请求，blade里面会自动解析这些数据，你可以通过如下方式获取数据： 使用Request对象的方法
+We often need to Get the user data, including the way of the Get and POST Request, the blade will automatically parse the data inside, you can Get the data through the following way: use the Request object methods
 
 ```java
 request.query("");
@@ -21,20 +22,20 @@ request.queryAsBoolean("");
 request.queryAsLong("");
 ```
 
-使用例子如下：
+Use examples as follow:
 
 ```java
-// hi请求
+// hi request
 public void hi(Request request){
     System.out.println(request.query("name"));
 }
 ```
 
-更多其他的request的信息，用户可以通过request获取信息，关于该对象的属性和方法参考手册Request。
+More information request, the user can obtain information from the request, about the object's properties and methods [reference manual request](http://bladejava.com/apidocs/com/blade/web/http/Request.html).
 
-**获取path上的参数**
+**Get on the path of parameters**
 
-在REST风格的URL路径上，我们的配置是类似于 `/user/:uid` 酱紫的。 那么如何获取呢？blade的request对象提供了如下方法，使用很简单
+On the URL path of REST style, our configuration is similar to a `/user/:uid` such.So how do you get ? Blade of the request object provides the following methods, the use of very simple:
 
 ```java
 request.param("");
@@ -42,95 +43,61 @@ request.paramAsInt("");
 request.paramAsLong("");
 ```
 
-**获取 Request Body 里的内容**
+**The content of the access Request in the Body**
 
-在 API 的开发中，我们经常会用到 `JSON` 或 `XML` 来作为数据交互的格式，如何在blade中获取Request Body里的JSON或XML的数据呢？
+In the development of the API, we often use `JSON` or `XML` as the format of the data interaction, how to obtain the Request in blade JSON or XML data in the Body ?
 
 ```java
 String body = request.body().asString;
 ```
 
-**文件上传**
+**File Upload**
 
-blade默认支持对表单文件上传的解析，就是别忘记在你的form表单中增加这个属性 `enctype="multipart/form-data"` ，否则你的浏览器不会传输你的上传文件。 文件上传之后一般是放在系统的内存里面，如果文件的size大于设置的缓存内存大小，那么就放在临时文件中，默认的缓存内存是1MB·，你可以通过如下来调整这个缓存内存大小:
-
-```java
-ServletFileUpload fileUpload = ServletFileUpload.parseRequest(request.servletRequest());
-// 判断是否是表单上传类型
-boolean isMultipart = fileUpload.isMultipartContent(request.servletRequest());
-if(isMultipart){
-    // 10MB
-    int buf_size = 10 * 1024 * 1024;
-    fileUpload.setBufferSize(buf_size);
-}
-```
-
-blade提供获取表单上传文件的方法 `FileItem fileItem = fileUpload.fileItem("上传Input的name")` 下面是一个上传文件的示例：
+Blade support by default on the interpretation of the form file upload, is don't forget to add this attribute in your form form ` enctype = "multipart/form - data" `, your browser will not transfer your upload files.After the file upload is generally in the system memory, if the file size is greater than the set of cache memory size, then placed in a temporary file, the default is 1 MB cache memory, and you can adjust the cache memory size by such as down:
 
 ```java
-/**
- * 上传图片
- */
-@Route(value="uploadimg", method = HttpMethod.POST)
-public void uploadImg(Request request, Response response){
-    ServletFileUpload fileUpload = 
-       ServletFileUpload.parseRequest(request.servletRequest());
-    boolean isMultipart = fileUpload.isMultipartContent(request.servletRequest());
-    if(isMultipart){
-        FileItem fileItem = fileUpload.fileItem("image");
-        String suffix = FileKit.getExtension(fileItem.getFileName());
-        if(StringKit.isNotBlank(suffix)){
-            suffix = "." + suffix;
-        }
-
-        String saveName = DateKit.dateFormat(new Date(), "yyyyMMddHHmmssSSS") 
-                       + "_" + StringKit.getRandomChar(10) + suffix;
-        String fname = Blade.webRoot() + File.separator + 
-                       Constant.UPLOAD_FOLDER + File.separator + saveName;
-        File file = new File(fname );
-
-        IOKit.write(fileItem.getFileContent(), file);
-
-        JSONObject jsonObject = new JSONObject();
-
-        if(file.exists()){
-
-            String prfix = request.url().replaceFirst(request.servletPath(), "/");
-            String filePath = Constant.UPLOAD_FOLDER + "/" + saveName;
-            String url = prfix + filePath;
-
-            jsonObject.put("id", saveName);
-            jsonObject.put("url", url);
-            jsonObject.put("success", 1);
-            jsonObject.put("message", "上传成功");
-
-        } else {
-            jsonObject.put("success", 0);
-            jsonObject.put("message", "上传失败");
-        }   
-        response.json(jsonObject.toString());
+public void someUplaod(Request request, Response response){
+    FileItem[] fileItems = request.files();
+    if(null != fileItems && fileItems.length > 0){
+        FileItem fileItem = fileItems[0];
+        System.out.println(fileItem.getFileName());
+        System.out.println(fileItem.getName());
+        System.out.println(fileItem.getFile());
     }
 }
 ```
 
-### 响应流
-
-该对象是 `Response` 的实例。是 Blade 中路由的核心对象，输出数据，跳转等操作都通过 `Response` 对象操作。
-
-使用方法：
+The following is an upload instances:
 
 ```java
-public void index(Response res){
+public void uploadImage(Request request, Response response){
+    FileItem[] fileItems = request.files();
+    if(null != fileItems && fileItems.length > 0){
+        File file = fileItem.getFile();
+        // Save the file to disk
+    }
+}
+```
+
+### Response
+
+The object is `Response` instance, is the core of the Blade by the middle object, output data, jump, etc all by `Response` object operation.
+
+Usage:
+
+```java
+public void index(Request request, Response res){
 	res.html("<h1>hello</h1>");
 	res.text("<h1>hello</h1>");
 	res.json("{'name':'jack'}");
 }
 ```
 
-## 请求上下文（Context）
+## Request Context
 
-该服务通过 `BladeWebContext` 来体现，它可以获取到当前请求的 `Request` 和 `Response`。
-使用方法：
+The service through `BladeWebContext` to reflect, it can get to the current Request `Request` and `Response`.
+
+Usage:
 
 ```java
 public void index(){
@@ -141,7 +108,7 @@ public void index(){
 
 ### Cookie
 
-最基本的 Cookie 用法：
+The most basic use cookies:
 
 ```java
 //...
@@ -155,23 +122,10 @@ public void get(Response res){
 // ...
 ```
 
-使用以下顺序的参数来设置更多的属性：`cookie(name, value, maxAge, secured);`。
+Use the following parameters to set properties for more order: `cookie(name, value, maxAge, secured);`。
 
-因此，设置 Cookie 最完整的用法为：`cookie("user", "unknwon", 999, true)`。
+Therefore, setting cookies for the most complete usage: `cookie("user", "unknwon", 999, true)`。
 
-需要注意的是，参数的顺序是固定的。
+It is important to note that the order of the parameters are fixed.
 
-对于那些对安全性要求特别高的应用，可以为每次设置 Cookie 使用不同的密钥加密/解密。
-
-## 静态文件
-
-该服务可以通过函数 `staticFolder("","");` 来设置。该服务主要负责应用静态资源的服务，当您的应用拥有多个静态目录时，可以对其进行多个设置。
-
-使用方法：
-
-```java
-public void init(){
-	Blade blade = Blade.me();
-	blade.staticFolder("/public", "/assets");
-}
-```
+For particularly high security requirements of applications, can be set for each Cookie use different key encryption/decryption.

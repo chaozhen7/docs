@@ -4,20 +4,20 @@ name: Interceptor
 sort: 3
 ---
 
-# 简介
+# Introduction
 
-Blade 拦截器提供一个方便的机制来过滤进入应用程序的 HTTP 请求，例如，当一个用户没有登录的时候，我们判读用户登录 `Session` 是否存在，如果用户登录 `Session` 不存在，拦截器会将用户导向登录页面，然而，如果用户登录 `Session` 存在，拦截器将会允许这个请求进一步继续前进。
+Blade interceptors provide a convenient mechanism to filter into the application of the HTTP request, for example, when a user is not logged in, our interpretation user login Session exists, if the user login Session does not exist, the interceptor will guide the user to the login page, however, if the user login Session exists, the interceptor will allow the request further move on.
 
-当然，除了身份验证之外，拦截器也可以被用来执行各式各样的任务，比如在所有请求中添加版本号、在请求返回的时候加入头信息等。
+Of course, in addition to authentication, the interceptor can also be used to perform a wide variety of tasks, such as in all requests to add the version number, when the request returns to join header information, etc.
 
-# 创建拦截器
+# Create Interceptor
 
-创建拦截器的方式非常简单，blade 的做法是像创建一个路由一样创建拦截器，不过请求类型是 `Before` Or `After`。像这样：
+Create the interceptor approach is very simple, blade is like creating a routing create interceptors, but request type is `Before` Or `After`.Like this:
 
 ```java
-blade.before("/*", (req,res) -> {
-    System.out.println("before 请求");
+blade.before("/.*", (req,res) -> {
+    System.out.println("before request..");
 });
 ```
 
-相同的也支持，注解方式，配置文件方式注册！
+The same also support, annotations way, way to register configuration file.
