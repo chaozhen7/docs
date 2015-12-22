@@ -39,12 +39,11 @@ JDK the lowest version required for **1.6**。
 
 ## Use case
 
-+ [hello](https://github.com/bladejava/hello)：Blade Hello World
-+ [sample](https://github.com/bladejava/sample)：Sample Demo
-+ [spider](https://github.com/bladejava/spider)：Crawler
-+ [shorturl](https://github.com/bladejava/shorturl)：ShortURL
-+ [postapi](https://github.com/bladejava/postapi)：Blog API
-+ [blade-bbs](https://github.com/bladejava/blade-bbs)：Simple forum
++ [hello](https://github.com/blade-samples/hello)：Blade Hello World
++ [sample](https://github.com/blade-samples/sample)：Sample Demo
++ [spider](https://github.com/blade-samples/spider)：Crawler
++ [shorturl](https://github.com/blade-samples/shorturl)：ShortURL
++ [postapi](https://github.com/blade-samples/postapi)：Blog API
 
 ## Fast navigation
 
