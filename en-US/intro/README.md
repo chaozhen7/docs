@@ -1,54 +1,54 @@
 ---
 root: true
-name: 框架简介
+name: Introduction
 sort: 0
 ---
 
 ## Blade
 
- `blade` 意为利刃，刀剑；在中国冷兵器中刀剑的杀伤力可谓锐不可当，对它的名字没有很刻意的去琢磨，碰巧看到这个单词觉得比较喜欢，当然我希望它日后能够成为一把锐利的杀手锏。我个人的追求简洁和优雅的，所以在设计上不追求过度抽象。
+ `blade` It is a sword; the sword in the China cold weapon lethality is can't be held back，the name of it is not very deliberately to ponder, it happened to see the word feel like, Of course I hope it will be a sharp killer. my personal pursuit of simplicity and elegance, so the design does not pursue over abstract。
 
- 工欲善其事，必先利其器，blade的简洁、强大一定值得你拜读，
- 如果你喜欢 请为它 [Star](https://github.com/biezhi/blade)，Thanks！
+ To do good work, must first sharpen his tools. Blade simple and powerful is worthy of reading,
+ if you like it, please [Star](https://github.com/biezhi/blade)，Thanks！
 
- `blade` 是一个快速开发Java应用的web框架，他可以用来快速开发API、Web 及后端服务等各种应用，是一个RESTful的框架，它提供了简易便捷的开发方式，微内核的mvc总线引导框架的整体运行，最初的目的是简化web开发，当然作者会在日后的版本升级以及集成其他基于blade的更多简洁组件。
+ `blade`  is a web framework for rapid development of Java applications，you can be used to develop API, Web and back-end services and other applications, a RESTful framework, it provides a simple and convenient way of development, the whole operation of the micro kernel MVC bus guide frame,  initial goal is to simplify the web development, and of course the author will upgrade in the future and integrate more compact components based on blade.
 
-## “微” 是什么意思？
+## "Micro" is what meaning？
 
-“微”(micro) 并不表示你需要把整个 Web 应用塞进单个 Java 文件，也不意味着 Blade 在功能上有所欠缺。微框架中的“微”意味着 Blade 旨在保持核心简单而易于扩展。Blade 不会替你做出太多决策——比如使用结合 `权限管理`。而那些 Blade 所选择的——比如使用何种模板引擎——则很容易替换。除此之外的一切都由可由你掌握。如此，Blade 可以与您珠联璧合。
+"Micro" does not mean that you need the whole web application into a single java file, does not mean that the blade is lacking in function. Micro framework of "micro" means blade is designed to keep the core simple and easy expansion.Blade not for you to make too many decisions, such as using a combination of ` rights management. And the blade and the choice of -- such as using what template engine -- is very easy to replace. Besides all are by the by your master. So, the blade can be with your perfect match.
 
-默认情况下，Blade 不包含数据库抽象层、表单验证，或是其它任何已有多种库可以胜任的功能。然而，Blade 支持用扩展来给应用添加这些功能，如同是 Blade 本身实现的一样。众多的扩展提供了数据库集成、表单验证、上传处理、各种各样的开放认证技术等功能。Blade 也许是“微小”的，但它已准备好在需求繁杂的生产环境中投入使用。
+By default, blade does not include the database abstraction layer, form validation or any other available variety can be competent. However, blade support extended to application of adding these features, as is the blade itself to achieve. Many extensions provides data integrated warehouse, form validation, the upload process, a variety of open authentication function.Blade perhaps is "tiny". But it is ready fortunately, the demand of complex production environment and put to use.
 
-## 配置与惯例
+## Configuration and Practice
 
-Blade 繁多的配置选项在初始状况下都有一个明智的默认值，并会遵循一些惯例。 例如，按照惯例，模板文件存储在应用的 `WEB-INF` 目录里。虽然这个配置可以修改，但你通常不必这么做， 尤其是在刚开始的时候。
+A wide range of configuration options in the initial situation has a sensible default, and will follow some of the rules, for example, in accordance with the practice, the template file is stored in the `WEB-INF` directory of the application. Although this configuration can be modified, but you usually do not have to do so, especially at the beginning of the time.
 
-[API 指南](http://bladejava.com/apidocs)
+[API DOC](http://bladejava.com/apidocs)
 
-JDK 的最低版本要求为 **1.6**。
+JDK the lowest version required for **1.6**。
 
-## 主要特性
+## Features
 
-- 轻量级。不依赖更多的库，摆脱SSH的臃肿，模块化设计，使用起来更轻便！
-- 模块化(你可以选择使用哪些组件)
-- 插件扩展机制
-- Restful风格的路由接口
-- 多种配置文件支持(当前支持properties、json和硬编码)
-- 内置Jetty服务,模板引擎支持
-- 支持JDK1.6或者更高版本
+* Lightweight: the code is simple and the structure is clear
+* Modular (you can choose which components to use)
+* Supports plug-in extension mechanism
+* Restful style routing interface
+* Supports multiple configuration files (currently properties, json and coding)
+* Embedded jetty server and template engine support
+* Supports jdk 1.6 and up
 
-## 使用案例
+## Use case
 
-+ [hello](https://github.com/bladejava/hello)：blade一试便知
-+ [sample](https://github.com/bladejava/sample)：入门工程
-+ [spider](https://github.com/bladejava/spider)：爬虫小玩意
-+ [shorturl](https://github.com/bladejava/shorturl)：短地址服务
-+ [postapi](https://github.com/bladejava/postapi)：博客API程序
-+ [blade-bbs](https://github.com/bladejava/blade-bbs)：简洁论坛系统
++ [hello](https://github.com/bladejava/hello)：Blade Hello World
++ [sample](https://github.com/bladejava/sample)：Sample Demo
++ [spider](https://github.com/bladejava/spider)：Crawler
++ [shorturl](https://github.com/bladejava/shorturl)：ShortURL
++ [postapi](https://github.com/bladejava/postapi)：Blog API
++ [blade-bbs](https://github.com/bladejava/blade-bbs)：Simple forum
 
-## 快速导航
+## Fast navigation
 
-- 刚开始了解 Blade 的话，不妨从 [开始使用](/docs/intro/getting_start) 看起。
-- Blade 已经拥有许多 [扩展库](/docs/modules) 来简化您的工作。
-- 如果您有任何问题，建议先从 [常见问题](/docs/faqs) 中寻找答案。
-- 如果您觉得文档有描述得不够清楚之处，请通过 [提交工单](https://github.com/biezhi/blade/docs/issues) 告知我们。
+- Just started to understand the words, might as well from [Begin to use](/docs/intro/getting_start).
+- Blade already has a number of [extensions](/docs/modules) to simplify your work.
+- If you have any questions, Suggestions from the first [FAQ](in/docs/faqs) to find the answer.
+- Document has described if you think is it not clear enough, please [pass/submit work orders](https://github.com/biezhi/blade/docs/issues) to inform us.
