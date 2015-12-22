@@ -56,25 +56,13 @@ blade.any("/").run(req, res) -> {
 
 几点说明：
 
-- 路由匹配的顺序是按照他们被定义的顺序执行的，
-- 但是，匹配范围较小的路由优先级比匹配范围大的优先级高（详见 **匹配优先级**）。
+- 路由匹配的顺序是按照他们被定义的顺序执行的。
+- 匹配范围较小的路由优先级比匹配范围大的优先级高。
 - 最先被定义的路由将会首先被用户请求匹配并调用。
 
 ### 占位符
 
 使用一个特定的名称来代表路由的某个部分：
-
-```java
-blade.get("/hello/:name").run(req, res) -> {
-    String name = req.pathParam(":name");
-});
-
-blade.get("/date/:year/:month/:day").run(req, res) -> {
-    System.out.println("Date:  %s/%s/%s", req.pathParam(":year"), req.pathParam(":month"), req.pathParam(":day"))
-});
-```
-
-当然，想要偷懒的时候可以将 `:` 前缀去掉：
 
 ```java
 blade.get("/hello/:name").run(req, res) -> {
@@ -170,7 +158,7 @@ public class Hello {
 **@Route是什么？**
 
 + `Route`是一个路由的最小单元，用于方法上
-+ `Route`的参数有`value`，`method`，`acceptType`
++ `Route`的参数有`value`，`method`
 + `value`用于配置路由的URL，也就是http请求的路径
 + 一般不以`/`开头，因为`@Path`上会指定的，写法如下：
     * /hello

@@ -4,12 +4,12 @@ name: Cache Manage
 sort: 7
 ---
 
-# 缓存管理（Cache）
+# Cache Manager
 
-`blade-cache` 实现简单的缓存管理。它不依赖 `Blade`，如果你也需要可以直接使用，
-底层是 `FIFO`，`LFU`，`LRU` 算法模型的实现。
+`blade-cache` implement a simple cache management. It does not rely on `Blade`, if you need can be used directly,
+The bottom is a `FIFO`, `LFU` and `LRU` algorithm implementation of the model.
 
-## 使用示例
+## Use Sample
 
 ```java
 public class CacheTest {
@@ -29,7 +29,7 @@ public class CacheTest {
 }
 ```
 
-## Hash类型数据
+## Hash Type Data
 
 ```java
 public class CacheTest {
@@ -52,7 +52,7 @@ public class CacheTest {
 }
 ```
 
-## 自定义设置
+## Custom Setting
 
 ```java
 public class CacheTest {
@@ -60,7 +60,7 @@ public class CacheTest {
 	@Test
 	public void testAutoClean(){
 		CacheManager cm = CacheManager.getInstance();
-		// 设置定时清理的频率
+		// Automate the frequency of cleaning
 		cm.setCleanInterval(1000);
 		
 		Cache<String, Object> cache = cm.newLRUCache();

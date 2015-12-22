@@ -20,10 +20,10 @@ blade 目前支持 JSON、Properties 格式的配置文件解析，也可以硬�
 public class App extends Bootstrap {
 
 	@Override
-	public void init() {}
+	public void init(Blade blade) {}
 
 	@Override
-	public void contextInitialized() {}
+	public void contextInitialized(Blade blade) {}
 }
 ``` 
 
@@ -62,11 +62,11 @@ String value = blade.config().get( KEY );
 
 ```java
 get(String key)
-getToInt(String key)
-getToLong(String key)
-getToBoolean(String key)
-getToDouble(String key)
-getToFloat(String key)
+getAsInt(String key)
+getAsLong(String key)
+getAsBoolean(String key)
+getAsDouble(String key)
+getAsFloat(String key)
 ```
 
 ## 系统配置合集
@@ -74,7 +74,6 @@ getToFloat(String key)
 - `blade.ioc`：配置要进行ioc管理的包名，多个用 `，` 逗号隔开
 - `blade.prefix`：视图目录前缀，如 `/WEB-INF/views/`，要以 `/` 开头和结尾哟
 - `blade.suffix`：视图文件的后缀名，默认是 `.jsp`，你可以修改为其他
-- `blade.filter_folder`：静态文件目录，在请求时这些目录会被过滤掉
 - `blade.filter_folder`：静态文件目录，在请求时这些目录会被过滤掉
 - `blade.route`：配置注解路由的包名，多个用逗号隔开
 - `blade.interceptor`：配置拦截器的包名，多个用逗号隔开（不推荐此方式）

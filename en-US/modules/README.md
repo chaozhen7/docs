@@ -2,20 +2,20 @@
 name: Core Ext
 ---
 
-# Blade核心模块
+# Blade Core Extension
 
-Blade核心模块可以帮助您快速开发，减少工作量。
+Blade Core modules can help you quickly develop, reduce the workload。
 
-现在已经有许多 `模块` 来简化您的工作：
+Now there are many modules to simplify your work:
 
-- [cache](https://github.com/biezhi/blade/tree/master/blade-cache) - 缓存管理器
-- [sql2o](https://github.com/biezhi/blade/tree/master/blade-sql2o) - Active Record数据库操作
-- [aop](https://github.com/biezhi/blade/tree/master/blade-aop) - cglib实现的可配置AOP拦截
-- [redis](https://github.com/biezhi/blade/tree/master/blade-redis) - Redis 支持
-- [velocity](https://github.com/biezhi/blade/blob/master/blade-core/src/main/java/com/blade/render/VelocityRender.java) - Velocity 模板引擎支持
-- [beetl](https://github.com/biezhi/blade/blob/master/blade-core/src/main/java/com/blade/render/BeetlRender.java) - Beetl 模板引擎支持
-- [jetbrick](https://github.com/biezhi/blade/blob/master/blade-core/src/main/java/com/blade/render/JetbrickRender.java) - JetbrikTemplate 模板引擎支持
-- [blade-kit](https://github.com/biezhi/blade/tree/master/blade-kit) - 简洁强大的工具包
-- [oauth2](https://github.com/biezhi/blade/tree/master/blade-oauth2) - OAuth 2.0 支持
-- [patchca](https://github.com/biezhi/blade/tree/master/blade-patchca) - 验证码支持
-- [csrf](http://bladejava.com/docs/modules/csrf) - 生成和管理 CSRF 令牌
+- [cache](https://github.com/biezhi/blade/tree/master/blade-cache) - Cache Manager
+- [sql2o](https://github.com/biezhi/blade/tree/master/blade-sql2o) - Active Record Database operations
+- [aop](https://github.com/biezhi/blade/tree/master/blade-aop) - Additional implementation of configurable AOP interception
+- [redis](https://github.com/biezhi/blade/tree/master/blade-redis) - Redis Support
+- [velocity](https://github.com/biezhi/blade/blob/master/blade-core/src/main/java/com/blade/render/VelocityRender.java) - Velocity Template
+- [beetl](https://github.com/biezhi/blade/blob/master/blade-core/src/main/java/com/blade/render/BeetlRender.java) - Beetl Template
+- [jetbrick](https://github.com/biezhi/blade/blob/master/blade-core/src/main/java/com/blade/render/JetbrickRender.java) - Jetbrik Template
+- [blade-kit](https://github.com/biezhi/blade/tree/master/blade-kit) - Concise and powerful toolkit
+- [oauth2](https://github.com/biezhi/blade/tree/master/blade-oauth2) - OAuth 2.0
+- [patchca](https://github.com/biezhi/blade/tree/master/blade-patchca) - Verification code
+- [csrf](http://bladejava.com/docs/modules/csrf) - CSRF token generation and management

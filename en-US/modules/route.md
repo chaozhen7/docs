@@ -4,12 +4,12 @@ name: Route
 sort: 2
 ---
 
-# 路由模块
+# Route Module
 
-现代 Web 应用的 URL 十分优雅，易于人们辨识记忆。
-在 Blade 中, 路由是一个 HTTP 方法配对一个 URL 匹配模型， 每一个路由可以对应一个或多个处理器方法，如下所示:
+Modern Web application URL is very elegant, easy to people recognition memory。
+In the Blade, the routing is an HTTP method matching a URL matching model, each routing method can correspond to one or more processors, as shown below:
 
-## 基本路由
+## Basic Route
 
 ```java
 blade.get("/").run(req, res) -> {
@@ -29,15 +29,15 @@ blade.delete("/").run(req, res) -> {
 });
 ```
 
-## 为多种请求注册路由
+## For a variety of routing request registration
 
-这里配置一个路由文件（对于匹配的是 `com.example.controller` 包下的类）
+Configure a routing file here（Matching is `com.example.controller` class under the package）
 
 ```java
 blade.routeConf("com.example.controller", "route.conf");
 ```
 
-`route.conf` 写法
+`route.conf` writing:
 
 ```
 GET     /               IndexRoute#home
@@ -46,35 +46,24 @@ GET     /users          UserRoute#show_users
 GET     /users/:uid     UserRoute#show_user
 ```
 
-## 注册路由响应所有 HTTP 请求
+## All registered routing response HTTP requests
 
 ```java
 blade.any("/").run(req, res) -> {
+    // ...
 });
 ```
 
 
-几点说明：
+Some notes:
 
-- 路由匹配的顺序是按照他们被定义的顺序执行的，
-- 但是，匹配范围较小的路由优先级比匹配范围大的优先级高（详见 **匹配优先级**）。
-- 最先被定义的路由将会首先被用户请求匹配并调用。
+- Routing order of matching is executed in the order they are defined
+- However, match the smaller routing priority than matching large range of high priority.
+- First defined the routing will be the first to be matching user requests and calls
 
-### 占位符
+### Placeholder
 
-使用一个特定的名称来代表路由的某个部分：
-
-```java
-blade.get("/hello/:name").run(req, res) -> {
-    String name = req.pathParam(":name");
-});
-
-blade.get("/date/:year/:month/:day").run(req, res) -> {
-    System.out.println("Date:  %s/%s/%s", req.pathParam(":year"), req.pathParam(":month"), req.pathParam(":day"))
-});
-```
-
-当然，想要偷懒的时候可以将 `:` 前缀去掉：
+Use a specific name to represent some part of the route:
 
 ```java
 blade.get("/hello/:name").run(req, res) -> {
@@ -82,13 +71,13 @@ blade.get("/hello/:name").run(req, res) -> {
 });
 
 blade.get("/date/:year/:month/:day").run(req, res) -> {
-    System.out.println("Date:  %s/%s/%s", req.pathParam("year"), req.pathParam("month"), req.pathParam("day"))
+    System.out.println("Date:  %s/%s/%s", req.param("year"), req.param("month"), req.param("day"))
 });
 ```
 
-### 函数式路由
+### Functional Route
 
-路由还可以使用一个普通的类和方法来注册：
+Route can also use a common to register the classes and methods:
 
 ```java
 public class App extends Bootstrap {
@@ -124,9 +113,9 @@ public class Index{
 }
 ```
 
-### 注解路由
+### Annotations Route
 
-这种写法可能是大家最习惯的，也是常见的写法之一，用注解配置一个路由
+This kind of writing is probably the most used to it, everyone is one of the common writing, use annotations to configure a route
 
 ```java
 @Path("/")
@@ -162,25 +151,25 @@ public class Hello {
 }
 ```
 
-**@Path是什么？**
+**What is the @Path?**
 
-+ 每一个路由的类必须用`@Path`标识，这样路由解析器知道这是一个路由类
-+ `@Path`注解只有一个value参数配置，相当于`namespace`
++ Each routing class must with the `@Path` identification, this routing parser know this is a routing class
++ `@Path` annotations only a `value` parameter configuration, equivalent to a namespace
     
-**@Route是什么？**
+**What is the @Route?**
 
-+ `Route`是一个路由的最小单元，用于方法上
-+ `Route`的参数有`value`，`method`，`acceptType`
-+ `value`用于配置路由的URL，也就是http请求的路径
-+ 一般不以`/`开头，因为`@Path`上会指定的，写法如下：
++ `Route` is the minimum unit, a routing method is used to
++ The `Route` has the value of parameters, method
++ `value` URL for routing configuration, also is the path of the HTTP request
++ Does not begin with `/` commonly, because `@Path` will specify, written as follows:
     * /hello
     * /user/hello
     * /user/:uid
     * /user/:uid/post
     
-+ Rest风格的路由配置，一定适合你的口味！
++ The routing configuration Rest style, must be suitable for your taste！
 
-**所有的支持的基础函数如下所示**
+**The basis of the support of all functions as shown below**
 
 ```java
 get(path, CallBack);
@@ -191,11 +180,11 @@ route(path, CallBack);
 any(path, CallBack);
 ```
 
-那么，配置好了路由大家还有什么疑问呢？
+So, configured routing are there any questions?
 
-- 请求的数据如何接收？
-- 怎么处理上传？
-- json怎么返回？
-- 拦截器该怎么玩？
+- How to receive the request data ?
+- How to deal with the upload ?
+- How return json ?
+- The interceptor how to play ?
 
-下面的一个章节带你了解这些功能，[一起来吧](./requestresponse)
+The following chapter take you understand these features, [Come with me](./requestresponse)
