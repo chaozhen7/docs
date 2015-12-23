@@ -124,8 +124,8 @@ public class User implements Serializable{
 ```java
 @Component
 public class UserServiceImpl implements UserService {
-
-    private Model<User > model = new Model<User>(User.class);
+	
+    private Model<User > model = Model.create(User.class);
 
     //根据主键查询User对象，对 就这么一行代码！
     public User getUserByUid(Integer uid){

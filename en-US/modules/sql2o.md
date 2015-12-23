@@ -126,7 +126,7 @@ The following example shows a `blade-sql2o` most basic CRUD:
 @Component
 public class UserServiceImpl implements UserService {
 
-    private Model<User > model = new Model<User>(User.class);
+    private Model<User > model = Model.create(User.class);
 
     // According to the primary key queries the User object, just this one line of code！
     public User getUserByUid(Integer uid){
