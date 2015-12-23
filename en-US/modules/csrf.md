@@ -1,6 +1,6 @@
 ---
 root: false
-name: Cross-site Request Forgery
+name: Cross-Site Request Forgery
 sort: 8
 ---
 

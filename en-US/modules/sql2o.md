@@ -1,6 +1,6 @@
 ---
 root: false
-name: Database operation
+name: Database Operation
 sort: 6
 ---
 
