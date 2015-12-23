@@ -1,10 +1,10 @@
 ---
 root: false
-name: Quick start
+name: Quick Started
 sort: 2
 ---
 
-# Quick start
+# Quick Started
 
 Can't wait to get started?This page provides a good Blade is introduced, and assume that you have installed an Blade.If not, please jump to [Get Started](./getting_start) section.
 
