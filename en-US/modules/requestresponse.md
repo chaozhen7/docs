@@ -47,6 +47,34 @@ request.paramAsInt("");
 request.paramAsLong("");
 ```
 
+### get `Form Input Field` Object
+
+`request.model` Accept the object from the page form field, The form Field is named after “pojoName.attrName” ，eg：
+```java
+//create Pojo
+public class Person {
+  private long id;
+  private String name;
+  private String address;
+  ...
+  getter/setter ellipsis
+}
+
+//Page form in the use of "pojoName.attrName" as the form of the domain name
+<from action="/person/save" method="post">
+  <input name="person.name" type="text">
+  <input name="person.address" type="text">
+  ...
+</from>
+
+public class Person {
+  public void save(Request request, Response response){
+     Pserson person = request.model("person", Person.class);
+     ...
+  }
+}
+```
+
 ### The content of the access Request in the Body
 
 In the development of the API, we often use `JSON` or `XML` as the format of the data interaction, how in `blade` derive Request Body in `JSON` or `XML` data ?
