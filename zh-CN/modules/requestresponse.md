@@ -46,6 +46,35 @@ request.paramAsInt("");
 request.paramAsLong("");
 ```
 
+### 获取 `页面表单域` 对象
+
+`request.model` 用来接受页面表单域传递过来的对象,表单域名称以 “pojoName.attrName” 方式命名，详见如下：
+```java
+//定义Pojo
+public class Person {
+  private long id;
+  private String name;
+  private String address;
+  ...
+  getter/setter 省略
+}
+
+
+//在页面表单中采用pojoName.attrName的形式作为表单域的name
+<from action="/person/save" method="post">
+  <input name="person.name" type="text">
+  <input name="person.address" type="text">
+  ...
+</from>
+
+public class Person {
+  public void save(Request request, Response response){
+     Pserson person = request.model("person", Person.class);
+     ...
+  }
+}
+```
+
 ###获取 Request Body 里的内容
 
 在 API 的开发中，我们经常会用到`JSON`或`XML`来作为数据交互的格式，如何在`blade`中获取`Request Body`里的`JSON`或`XML`的数据呢？
