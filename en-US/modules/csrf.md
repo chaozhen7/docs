@@ -29,16 +29,14 @@ Width=0 height=0 here said the picture is not visible.This statement will cause 
 Instead of using the CSRF protection functions as a built-in, blade configuration of the users themselves, wrote in the interceptor:
 
 ```java
-blade.before("/*").run( (req,res) -> {
-			
-	HttpMethod httpMethod = req.method();
-	
-	if(httpMethod.equals(HttpMethod.POST)){
-    	if(!CSRFTokenManager.verifyAsForm(req, res)){
-    		res.text("csrf error!!!");
-    		return;
-    	}
-    	System.out.println("post request");
+blade.before("/*", (req, res) -> {
+    if (req.method().equals(HttpMethod.POST)) {
+        if (!CSRFTokenManager.verifyAsForm(req, res)) {
+            res.text("csrf error!!!");
+            req.abort();
+            return;
+        }
+        System.out.println("post request");
     }
 });
 ```
@@ -46,9 +44,8 @@ blade.before("/*").run( (req,res) -> {
 Route Code:
 
 ```java
-blade.post("/login").run( (req,res) -> {
+blade.post("/login", (req, res) -> {
 	System.out.println("go login");
-	return "login";
 });
 ```
 
