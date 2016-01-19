@@ -53,7 +53,7 @@ public class App extends Bootstrap {
 
         blade.get("/", new RouteHandler() {
             public void handle(Request request, Response response) {
-                request.attr("name", "blade");
+                request.attribute("name", "blade");
                 response.render("index");
             }
         });
