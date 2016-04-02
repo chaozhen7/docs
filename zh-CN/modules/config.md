@@ -10,7 +10,7 @@ Blade 框架的运行是依赖于配置的，每个选项都有说明，因此�
 
 # 配置
 
-blade 目前支持 JSON、Properties 格式的配置文件解析，也可以硬编码进行配置，但是默认采用了 Properties 格式解析，用户可以通过简单的配置就可以获得很大的灵活性。
+blade 目前支持 JSON、Properties 格式的配置文件解析，也可以硬编码进行配置，但是默认采用了 Properties 格式解析，用户可以通过简单的配置就可以获得很大的灵活性，实际上你使用 Blade 开发需要的配置非常少。
 
 # 配置方式
 
@@ -35,18 +35,6 @@ public class App extends Bootstrap {
 
 > _**一般在启动配置类的 `init` 方法进行 路由配置、模板配置、数据库配置等操作**_
 
-
-# 默认配置
-
-blade 内置了一些基础配置方便开发者使用
-
-```sh
-#视图文件目录
-blade.prefix=/WEB-INF/
-#视图文件后缀
-blade.suffix=.jsp
-```
-
 如果你是非 web 应用且使用 jetty 启动，那么 blade 默认启动端口是 9000。
 
 # 读取配置值
@@ -69,8 +57,9 @@ getAsDouble(String key)
 getAsFloat(String key)
 ```
 
-## 系统配置合集
+## 系统配置参数
 
+- `blade.basepackage`：配置项目运行的基础包
 - `blade.ioc`：配置要进行ioc管理的包名，多个用 `，` 逗号隔开
 - `blade.prefix`：视图目录前缀，如 `/WEB-INF/views/`，要以 `/` 开头和结尾哟
 - `blade.suffix`：视图文件的后缀名，默认是 `.jsp`，你可以修改为其他

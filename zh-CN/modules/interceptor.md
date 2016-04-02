@@ -20,4 +20,28 @@ blade.before("/*", (req,res) -> {
 });
 ```
 
-相同的也支持，注解方式，配置文件方式注册！
+# 默认拦截器包
+
+我们在前面设置了 `basepackage` , Blade 默认会设置 `basepackage.interceptor` 包为拦截器包。
+在这里你可以创建自定义的拦截器，像这样：
+
+```java
+@Intercept
+public class BaseInterceptor implements Interceptor {
+
+	@Override
+	public boolean before(Request request, Response response) {
+		request.attribute("base", request.contextPath());
+		return true;
+	}
+
+	@Override
+	public boolean after(Request request, Response response) {
+		return true;
+	}
+}
+```
+
+这个拦截器会拦截所有的路由请求，而且会在request作用域设置一个 `base` 的变量。
+
+相同的也支持，注解方式方式注册！

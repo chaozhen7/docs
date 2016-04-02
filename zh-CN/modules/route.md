@@ -12,19 +12,19 @@ sort: 2
 ## 基本路由
 
 ```java
-blade.get("/").run(req, res) -> {
+blade.get("/", (request, response) -> {
     // show something
 });
 
-blade.post("/").run(req, res) -> {
+blade.post("/", (request, response) -> {
     // create something
 });
 
-blade.put("/").run(req, res) -> {
+blade.put("/", (request, response) -> {
     // replace something
 });
 
-blade.delete("/").run(req, res) -> {
+blade.delete("/", (request, response) -> {
     // destroy something
 });
 ```
@@ -49,7 +49,8 @@ GET     /users/:uid     UserRoute#show_user
 ## 注册路由响应所有 HTTP 请求
 
 ```java
-blade.any("/").run(req, res) -> {
+blade.any("/", (request, response) -> {
+
 });
 ```
 
@@ -65,12 +66,13 @@ blade.any("/").run(req, res) -> {
 使用一个特定的名称来代表路由的某个部分：
 
 ```java
-blade.get("/hello/:name").run(req, res) -> {
-    String name = req.pathParam("name");
+blade.get("/hello/:name", (request, response) -> {
+    String name = request.pathParam("name");
 });
 
-blade.get("/date/:year/:month/:day").run(req, res) -> {
-    System.out.println("Date:  %s/%s/%s", req.pathParam("year"), req.pathParam("month"), req.pathParam("day"))
+blade.get("/date/:year/:month/:day", (request, response) -> {
+    System.out.println("Date:  %s/%s/%s", request.pathParam("year"), 
+        request.pathParam("month"), request.pathParam("day"))
 });
 ```
 

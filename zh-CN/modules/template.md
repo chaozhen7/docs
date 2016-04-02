@@ -1,6 +1,6 @@
 ---
 root: false
-name: 视图
+name: 模板渲染
 sort: 5
 ---
 
@@ -11,6 +11,8 @@ sort: 5
 - `blade-jetbrick`：基于jetbrick-template模板引擎的扩展，也是本人最喜爱的模板引擎
 - `blade-velocity`：基于velocity模板引擎的扩展
 - `blade-beetl`：基于beetl模板引擎的扩展
+
+这些模板引擎可以在[这里](https://github.com/bladejava/blade-template-engines)看到。
 
 ## JSP渲染
 
@@ -24,29 +26,29 @@ sort: 5
 默认所有视图文件存放在`webapp`下的`WEB-INF`文件夹下，可进行设置：
 
 ```java
-// 设置模板文件目录
+// 设置JSP文件目录
 blade.viewPrefix("/WEB-INF/views/");
 ```
 
 **如何输出到页面？**
 
 ```java
-public void index(Request request, Response response){
+public String index(Request request, Response response){
     request.attribute("name", "jack");
-    response.render("index");
+    return "index.jsp";
 }
 ```
 
-`blade`框架内置了JSP渲染，所以你看到的 `response.render("index")` 代码是可以返回到 `WEB-INF/index.jsp` 文件上的，
+`blade`框架内置了JSP渲染，所以你看到的 `return "index.jsp"` 代码是可以返回到 `WEB-INF/views/index.jsp` 文件上的，
 这个文件在哪里，请看前面的 **模板目录**。
 
 当然`blade`还支持类似spring的`ModelAndView`，怎么使用呢，
 
 ```java
-public void index(Request request, Response response){
-    ModelAndView modelAndView = new ModelAndView("index");
+public ModelAndView index(Request request, Response response){
+    ModelAndView modelAndView = new ModelAndView("index.jsp");
     modelAndView.add("name", "jack");
-    response.render(modelAndView);
+    return modelAndView;
 }
 ```
 
@@ -59,9 +61,9 @@ public void index(Request request, Response response){
 
 ```java
 // 设置模板引擎
-JetbrickRender jetbrickRender = new JetbrickRender();
-jetEngine = jetbrickRender.getJetEngine();
-blade.viewEngin(jetbrickRender);
+JetbrickTemplateEngine jetbrickTemplateEngine = new JetbrickTemplateEngine(BladeWebContext.servletContext());
+
+blade.viewEngin(jetbrickTemplateEngine);
 ```
 
 其他更多操作就遵循模板的使用方法即可。

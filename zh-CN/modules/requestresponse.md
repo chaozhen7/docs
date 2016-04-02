@@ -61,6 +61,7 @@ public class Person {
 
 
 //在页面表单中采用pojoName.attrName的形式作为表单域的name
+
 <from action="/person/save" method="post">
   <input name="person.name" type="text">
   <input name="person.address" type="text">
@@ -93,7 +94,7 @@ String body = request.body().toString();
 ```java
 public String index(Request request, Response response){
     request.attribute("name", "jack");
-    return "index";
+    return "index.jsp";
 }
 ```
 
@@ -101,9 +102,9 @@ public String index(Request request, Response response){
 
 ```java
 public void getUser(Request request, Response response){
-	JsonObject data = new JsonObject();
-    data.add("status", 200);
-    data.add("data", "data");
+	JSONObject data = new JSONObject();
+    data.put("status", 200);
+    data.put("data", "data");
     
     response.json(data.toString());
 }
@@ -119,8 +120,6 @@ public void getUser(Request request, Response response){
     response.xml(xml);
 }
 ```
-
-`blade`后期会考虑直接将对象转为`xml`数据格式，当前版本还不支持。
 
 ### session处理
 
@@ -147,47 +146,3 @@ if(null == login_user && request.uri().indexOf("/admin") != -1){
 ```
 
 拦截器中获取用户对象，如果session中没有则跳转到登录页。
-
-## 配置拦截器
-
-拦截器在Spring中是一个惯用的编程手段，在`blade`中也存在拦截器，功能简化一些。
-
-```java
-@Interceptor
-public class BaseInterceptor {
-	
-	TimwMonitor monitor = TimwManager.getTimerMonitor();
-	
-	@Before("/.*")
-	public void before(Request request, Response response){
-		
-		System.out.println("before...");
-		monitor.start();
-		
-		request.attribute("base", request.contextPath());
-		request.attribute("static_v", "20150722");
-		
-		User login_user = request.session().attribute(Constant.LOGIN_SESSION);
-	}
-	
-	@After("/.*")
-	public void after(){
-		System.out.println("after...");
-		monitor.end();
-		monitor.render();
-		monitor.renderAvg();
-	}
-}
-```
-
-在新版本中支持函数式注册拦截器，写法如下：
-
-```java
-blade.before("/.*", new RouteHandler() {
-	@Override
-	public void handler(Request request, Response response) {
-		request.attribute("base", request.contextPath());
-		request.attribute("version", "1.0");
-	}
-});
-```
